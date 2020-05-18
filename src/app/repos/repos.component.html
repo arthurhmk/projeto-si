@@ -1,1 +1,18 @@
-<p>repos works!</p>
+<div>
+    <h1>Repositórios</h1>
+    <div *ngFor='let col of this.collaborators;index as i'>
+        <h2>{{col}}</h2>
+        <table>
+            <tr>
+                <td>Nome</td>
+                <td>Descrição</td>
+                <td>Link</td>
+            </tr>
+            <tr *ngFor='let repo of this.repositories[i]'>
+                <td>{{repo.name}}</td>
+                <td>{{repo.description}}</td>
+                <td><a href="{{repo.html_url}}">{{repo.html_url}}</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
