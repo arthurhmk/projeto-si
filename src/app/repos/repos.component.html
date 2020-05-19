@@ -1,18 +1,36 @@
-<div>
+<div class="row">
+  <div class="col-12">
     <h1>Repositórios</h1>
-    <div *ngFor='let col of this.collaborators;index as i'>
-        <h2>{{col}}</h2>
-        <table>
-            <tr>
-                <td>Nome</td>
-                <td>Descrição</td>
-                <td>Link</td>
-            </tr>
-            <tr *ngFor='let repo of this.repositories[i]'>
-                <td>{{repo.name}}</td>
-                <td>{{repo.description}}</td>
-                <td><a href="{{repo.html_url}}">{{repo.html_url}}</a></td>
-            </tr>
-        </table>
+    <hr />
+  </div>
+</div>
+
+<div class="card mb-4" *ngFor='let col of this.collaborators;index as i'>
+  <div class="card-header d-flex flex-row justify-content-between align-items-center">
+    <div class="d-flex flex-row align-items-center">
+      <img class="profile-image mr-3" *ngIf="this.repositories[i]" [src]="this.repositories[i][0].owner.avatar_url" />
+      <h2 class="h4 m-0">{{col}}</h2>
     </div>
+    <a [href]="gitLink + col" class="btn btn-link p-0" target="_blank">Ir para github</a>
+  </div>
+  <div class="card-body">
+
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4" *ngFor='let repo of this.repositories[i]'>
+        <div class="card h-100">
+          <div class="card-header">
+            {{repo.name}}
+          </div>
+          <div class="card-body">
+            <p class="m-0 text-muted">
+              {{repo.description !== null ? repo.description : 'Sem descrição'}}
+            </p>
+          </div>
+          <div class="card-footer">
+            <a [href]="repo.html_url" target="_blank" class="btn btn-primary">Ir para repositório</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

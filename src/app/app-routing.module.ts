@@ -4,15 +4,14 @@ import { IndexComponent } from './index/index.component';
 import { ReposComponent } from './repos/repos.component';
 import { BitcoinComponent } from './bitcoin/bitcoin.component';
 
-
 const routes: Routes = [
-  {path:'',component:IndexComponent},
-  {path:'repos',component:ReposComponent},
-  {path:'bitcoin',component:BitcoinComponent}
+  { path: '', component: IndexComponent },
+  { path: 'repos', component: ReposComponent },
+  { path: 'bitcoin', component: BitcoinComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
