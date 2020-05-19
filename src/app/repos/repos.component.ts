@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-interface Repository {
-  repos: {
-    name: string;
-    html_url: string;
-    description: string;
+type Repository = {
+  name: string;
+  html_url: string;
+  description: string;
+  owner: {
+    avatar_url: string;
   };
-}
+};
 
 @Component({
   selector: 'app-repos',
@@ -17,7 +18,7 @@ interface Repository {
 export class ReposComponent implements OnInit {
   gitLink = 'https://github.com/';
   collaborators = ['arthurhmk', 'fabio-alves', 'jhonnatthan'];
-  repositories: Array<Repository> = [];
+  repositories: Repository[] = [];
 
   constructor(private http: HttpClient) {}
 

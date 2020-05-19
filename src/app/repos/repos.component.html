@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="col-12">
+  <div class="col-12 mb-4">
     <h1>Repositórios</h1>
     <hr />
   </div>
 </div>
 
-<div class="card mb-4" *ngFor='let col of this.collaborators;index as i'>
+<div class="card mb-4" *ngFor="let col of this.collaborators;index as i">
   <div class="card-header d-flex flex-row justify-content-between align-items-center">
     <div class="d-flex flex-row align-items-center">
       <img class="profile-image mr-3" *ngIf="this.repositories[i]" [src]="this.repositories[i][0].owner.avatar_url" />
@@ -16,14 +16,14 @@
   <div class="card-body">
 
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4" *ngFor='let repo of this.repositories[i]'>
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4" *ngFor="let repo of this.repositories[i]">
         <div class="card h-100">
           <div class="card-header">
             {{repo.name}}
           </div>
           <div class="card-body">
             <p class="m-0 text-muted">
-              {{repo.description !== null ? repo.description : 'Sem descrição'}}
+              {{repo.description !== null ? repo.description : "Sem descrição"}}
             </p>
           </div>
           <div class="card-footer">

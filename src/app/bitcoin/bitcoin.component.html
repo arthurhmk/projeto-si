@@ -1,1 +1,28 @@
-<p>bitcoin works!</p>
+<div class="row">
+  <div class="col-12 mb-4">
+    <h1>Cotação bitcoin</h1>
+    <hr />
+  </div>
+</div>
+
+<div class="row" *ngIf="response">
+  <div class="col-12 mb-4">
+    <div class="alert alert-info">{{response.disclaimer}}</div>
+
+  </div>
+
+  <div class="col-12 mb-4" *ngFor="let coin of this.coins">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="m-0 h3">{{coin.description}}</h2>
+      </div>
+      <div class="card-body">
+        <p class="h5 mb-3 font-weight-normal"><b>Código:</b> {{coin.code}}</p>
+        <p class="h5 m-0 font-weight-normal"><b>Preço:</b> {{coin.rate_float | currency:coin.code}}</p>
+      </div>
+      <div class="card-footer">
+        <p class="m-0"><b>Atualizado em:</b> {{response.time.updated | date:'dd/MM/yyyy HH:mm:ss'}}</p>
+      </div>
+    </div>
+  </div>
+</div>

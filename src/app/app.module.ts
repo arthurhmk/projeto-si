@@ -15,14 +15,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     IndexComponent,
     ReposComponent,
     BitcoinComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
