@@ -37,12 +37,16 @@ export class BitcoinComponent implements OnInit {
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {
+  getBitcoin() {
     this.http
       .get<Response>('https://api.coindesk.com/v1/bpi/currentprice/BRL.json')
       .subscribe((data) => {
         this.response = data;
         this.coins = Object.values(data.bpi);
       });
+  }
+
+  ngOnInit(): void {
+    this.getBitcoin();
   }
 }
